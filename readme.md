@@ -12,7 +12,8 @@ Get a clean, isolated development environment for your project setup in seconds.
 
 Requirements
 --------------
-+ [VirtualBox](https://www.virtualbox.org/wiki/Downloads) with a host only adapter configured `192.168.5.1` with netmask `255.255.255.0` (192.168.5.0/24)
++ [VirtualBox](https://www.virtualbox.org/wiki/Downloads) with a host only network `192.168.5.1` with netmask `255.255.255.0` (192.168.5.0/24).
+If you need help with this, follow step 1 and 2 from [this guide](http://christophermaier.name/blog/2010/09/01/host-only-networking-with-virtualbox).
 + [Vagrant 1.3+](http://www.vagrantup.com)
 + [Salty Vagrant plugin](https://github.com/saltstack/salty-vagrant) (`vagrant plugin install vagrant-salt`)
 
@@ -20,15 +21,21 @@ Usage
 --------------
 1. Install VirtualBox, Vagrant and the Salty Vagrant plugin.
 2. Clone this repo, CD into the folder, remove the existing git repo:
-> git clone git://github.com/ronalddddd/vagrant_cake.git && rm -rf vagrant_cake/.git && cd vagrant_cake
-3. Boot the VM and give it some time to run the provisioning scripts (install apache, php etc):
-> vagrant up
-4. Done. Start coding! The host's www directory is shared with the VM's /var/www directory, where the cake installation lives.
+```
+    git clone git://github.com/ronalddddd/vagrant_cake.git && rm -rf vagrant_cake/.git && cd vagrant_cake
+```
+3. Boot the VM:
+```
+    vagrant up
+```
+4. Done. Start coding! The host's `www` directory is shared with the VM's `/var/www` directory, where the cake installation lives.
 
 IP Address
 --------------
 You can browse to the cake installation at `http://192.168.5.2`.
 You can change this address in `/Vagrantfile` before calling `vagrant up`
+
+To setup the network on virtualbox, follow step 1 and 2 from [this guide](http://christophermaier.name/blog/2010/09/01/host-only-networking-with-virtualbox).
 
 Database
 --------------
