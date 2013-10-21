@@ -30,12 +30,26 @@ Usage
 ```
 4. Done. Start coding! The host's `www` directory is shared with the VM's `/var/www` directory, where the cake installation lives.
 
+
+Suspend, Resume, Destroy
+-------------------------
+To suspend the VM, keeping all states intact (aka hibernate), use the command `vagrant suspend`. *** To bring it back up, use `vagrant resume`.***
+Do not use `vagrant up`, as this will cause the www folder to be remounted with the wrong permissions.
+
+When you're done with the VM and no longer want to keep the VM states (the VM's virtual disk), use `vagrant destroy` to remove the instance.
+Your shared folder (`www`) will remain untouched.
+
 IP Address
 --------------
 You can browse to the cake installation at `http://192.168.5.2`.
 You can change this address in `/Vagrantfile` before calling `vagrant up`
 
 To setup the network on virtualbox, follow step 1 and 2 from [this guide](http://christophermaier.name/blog/2010/09/01/host-only-networking-with-virtualbox).
+
+Port forwarding
+----------------
+If you need to access the VM's web port from the host machine's IP, you can uncomment the line `#config.vm.network "forwarded_port", guest: 80, host: 8080` in `/Vagrantfile`.
+This will create a host:8080 port forward to you your VM's port 80. Feel free to change/add port forwards.
 
 Database
 --------------

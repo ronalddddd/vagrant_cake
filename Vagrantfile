@@ -18,6 +18,7 @@ Vagrant.configure("2") do |config|
   ## Networking
   
   config.vm.network :private_network, ip: "192.168.5.2"
-  config.vm.network "forwarded_port", guest: 80, host: 8080
+  ## If you need to access to the vm web server from your host network, enable the following line:
+  #config.vm.network "forwarded_port", guest: 80, host: 8080
  end
 end
