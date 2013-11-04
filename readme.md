@@ -56,6 +56,11 @@ Database
 + Database dump will be imported from [project path]/database.sql when the vagrant instance is created.
 + Default database is named `dev_app`. MySQL user `cake_user` has been granted all privileges to that DB.
 
+Crontab
+--------------
+The `/salt/roots/crontabs.sls` config file manages which crontab template to use (and what user to run as) when setting up the VM.
+A default template is provided in `/salt/roots/crontabs/www-data.cron`, which runs as the apache daemon user "www-data".
+
 User credentials
 -----------------
 Below is a list of user credentials for this vm:

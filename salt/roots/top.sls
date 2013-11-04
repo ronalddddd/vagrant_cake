@@ -5,4 +5,5 @@ base:
     - php
     - database
     - cakephp
+    - crontabs
     - dev
