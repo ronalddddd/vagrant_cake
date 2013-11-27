@@ -1,6 +1,3 @@
-include:
-  - http
-
 php:
   pkgrepo.managed:
     - name: php5
